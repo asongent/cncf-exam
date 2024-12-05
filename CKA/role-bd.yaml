@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: army
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: army
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: alice
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: john
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: paul
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: tapa
+- kind: ServiceAccount
+  name: army-sa
+  namespace: default

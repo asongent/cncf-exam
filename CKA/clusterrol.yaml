@@ -1,0 +1,9 @@
+kubectl -n developers create clusterrole metasploit \
+--verb=create --verb=get --verb=create --verb=list --verb=update --verb="*" \
+--resource=pods --resource=deployment --resource=secret --resource=service \
+--resource=serviceaccount --resource=statefulset --resource=configmap \
+--resource=persistentvolumeclaim --resource=persistentvolume --dry-run=client -oyaml 
+
+
+kubectl create clusterrolebinding metasploit \
+--role=metasploit --user=honor --serviceaccount=default:nginx --dry-run=client -oyaml  
